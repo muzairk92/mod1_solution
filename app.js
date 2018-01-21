@@ -9,6 +9,7 @@ function Check ($scope) {
   $scope.dish = "" ;
   $scope.msg ;
 
+  //DISPLAY MESSAGE FUNCTION
   $scope.displayMsg = function (){
     if($scope.dish == ""){
       $scope.msg = 'Please Enter Data First';
@@ -17,24 +18,23 @@ function Check ($scope) {
       $scope.msg = checkDish($scope.dish);
     }
   }
-
+  // CHECK VALIDATION OF DISH OF LUNCH
   function checkDish(string){
-    var re = /\s*,\s*/;
+    var commaSeprate = /\s*,\s*/;
     var val = "";
-    var nameList = string.split(re);
+    var nameList = string.split(commaSeprate);
       console.log(nameList);
-    var dishArrayLenght = nameList.length;
+    var dishArrayLength = nameList.length;
 
-    if(dishArrayLenght  <= 3 ){
+    if(dishArrayLength  <= 3 ){
       val = 'Enjoy!';
     }
     else {
       val = 'Too Much'
     }
-      console.log(dishArrayLenght);
+      console.log(dishArrayLength);
       return val;
   }
-
 }
 
 })();
